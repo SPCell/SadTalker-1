@@ -1,33 +1,41 @@
-### macOS
 
-This method has been tested on a M1 Mac (13.3)
+### Mac (Tested on M1 Mac OS 13.3)
 
-```bash
-git clone https://github.com/OpenTalker/SadTalker.git
+```
+git clone https://github.com/Winfredy/SadTalker.git
+
 cd SadTalker 
+
 conda create -n sadtalker python=3.8
+
 conda activate sadtalker
+
 # install pytorch 2.0
 pip install torch torchvision torchaudio
+
 conda install ffmpeg
+
 pip install -r requirements.txt
-pip install dlib # macOS needs to install the original dlib.
+
+pip install dlib # mac need to install the original dlib.
+
 ```
+
+
 
 ### Windows Native
 
-- Make sure you have `ffmpeg` in the `%PATH%` as suggested in [#54](https://github.com/Winfredy/SadTalker/issues/54), following [this](https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/) tutorial to install `ffmpeg` or using scoop.
+- Make sure you have `ffmpeg` in the `%PATH%` as suggested in [#54](https://github.com/Winfredy/SadTalker/issues/54), following [this](https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/) installation to install `ffmpeg`. 
 
 
 ### Windows WSL
-
-
 - Make sure the environment: `export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH`
 
 
-### Docker Installation
+### Docker installnation
 
-A community Docker image by [@thegenerativegeneration](https://github.com/thegenerativegeneration) is available on the [Docker hub](https://hub.docker.com/repository/docker/wawa9000/sadtalker), which can be used directly:
+A dockerfile are also provided by [@thegenerativegeneration](https://github.com/thegenerativegeneration) in [docker hub](https://hub.docker.com/repository/docker/wawa9000/sadtalker), which can be used directly as:
+
 ```bash
 docker run --gpus "all" --rm -v $(pwd):/host_dir wawa9000/sadtalker \
     --driven_audio /host_dir/deyu.wav \

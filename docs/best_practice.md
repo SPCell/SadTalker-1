@@ -1,8 +1,8 @@
-# Best Practices and Tips for configuration
+# Best Practice and Tips for configuration
 
-> Our model only works on REAL people or the portrait image similar to REAL person. The anime talking head genreation method will be released in future.
+> Our model only works on REAL person's photo or the portrait image similar to REAL person. The anime talking head genreation method will be released in future.
 
-Advanced confiuration options for `inference.py`:
+Advanced confiurations for `inference.py`:
 
 | Name        | Configuration | default |   Explaination  | 
 |:------------- |:------------- |:----- | :------------- |
@@ -20,18 +20,18 @@ Advanced confiuration options for `inference.py`:
 
 ### About `--preprocess`
 
-Our system automatically handles the input images via `crop`, `resize` and `full`.
+Our method automatically handle the input images via `crop`, `resize` and `full`.
 
-In `crop` mode, we only generate the croped image via the facial keypoints and generated the facial anime avator. The animation of both expression and head pose are realistic.
+ In `crop` mode, we only generate the croped image via the facial keypoints and generated the facial anime avator. The animation of both expression and head pose are realistic.
 
-> Still mode will stop the eyeblink and head pose movement.
+> still mode will stop the eyeblink and head pose movement.
 
 |  [input image @bagbag1815](https://twitter.com/bagbag1815/status/1642754319094108161) | crop | crop w/still |
 |:--------------------: |:--------------------: | :----: |
 | <img src='../examples/source_image/full_body_2.png' width='380'> | ![full_body_2](example_crop.gif) | ![full_body_2](example_crop_still.gif) |
 
 
-In `resize` mode, we resize the whole images to generate the fully talking head video. Thus, an image similar to the ID photo can be produced. ⚠️ It will produce bad results for full person images.
+ In `resize` mode, we resize the whole images to generate the fully talking head video. Thus, an image similar to the ID photo can be produced. ⚠️ It will produce bad results for full person images.
 
 
  
@@ -50,7 +50,7 @@ In `full` mode, our model will automatically process the croped region and paste
 
 ### About `--enhancer`
 
-For higher resolution, we intergate [gfpgan](https://github.com/TencentARC/GFPGAN) and [real-esrgan](https://github.com/xinntao/Real-ESRGAN) for different purpose. Just adding `--enhancer <gfpgan or RestoreFormer>` or `--background_enhancer <realesrgan>` for the enhancement of the face and the full image.
+For better facial quality, we intergate [gfpgan](https://github.com/TencentARC/GFPGAN) and [real-esrgan](https://github.com/xinntao/Real-ESRGAN) for different purpose. Just adding `--enhancer <gfpgan or RestoreFormer>` or `--background_enhancer <realesrgan>` for the enhancement of the face and the full image.
 
 ```bash
 # make sure above packages are available:
@@ -70,7 +70,7 @@ This flag indicate that we can generated the 3d-rendered face and it's 3d facial
 
 
 
-#### Reference eye-link mode.
+#### reference eye-link mode.
 
 | Input, w/ reference video   ,  reference video    | 
 |:-------------: | 
