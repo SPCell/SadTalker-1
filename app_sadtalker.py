@@ -55,14 +55,14 @@ def sadtalker_demo(checkpoint_path='checkpoints', config_path='src/config', warp
                                 length_of_audio = gr.Number(value=5, label="The length(seconds) of the generated video.")
                                 use_idle_mode.change(toggle_audio_file, inputs=use_idle_mode, outputs=[driven_audio, driven_audio_no]) # todo
 
-                                if sys.platform != 'win32' and not in_webui:
-                                    with gr.Accordion('Generate Audio From TTS', open=False):
-                                        from src.utils.text2speech import TTSTalker
-                                        tts_talker = TTSTalker()
-                                        with gr.Column(variant='panel'):
-                                            input_text = gr.Textbox(label="Generating audio from text", lines=5, placeholder="please enter some text here, we genreate the audio from text using @Coqui.ai TTS.")
-                                            tts = gr.Button('Generate audio',elem_id="sadtalker_audio_generate", variant='primary')
-                                            tts.click(fn=tts_talker.test, inputs=[input_text], outputs=[driven_audio])
+                                # if sys.platform != 'win32' and not in_webui:
+                                #     with gr.Accordion('Generate Audio From TTS', open=False):
+                                #         from src.utils.text2speech import TTSTalker
+                                #         tts_talker = TTSTalker()
+                                #         with gr.Column(variant='panel'):
+                                #             input_text = gr.Textbox(label="Generating audio from text", lines=5, placeholder="please enter some text here, we genreate the audio from text using @Coqui.ai TTS.")
+                                #             tts = gr.Button('Generate audio',elem_id="sadtalker_audio_generate", variant='primary')
+                                #             tts.click(fn=tts_talker.test, inputs=[input_text], outputs=[driven_audio])
 
                         with gr.Row():
                             ref_video = gr.Video(label="Reference Video", source="upload", type="filepath", elem_id="vidref").style(width=512)
@@ -157,6 +157,6 @@ if __name__ == "__main__":
 
     demo = sadtalker_demo()
     demo.queue()
-    demo.launch()
+    demo.launch(share=True)
 
 
